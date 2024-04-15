@@ -119,6 +119,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR /'static'
-STATICFILES_DIR = [
+STATICFILES_DIRS = [
     'greatkart/static',
 ]
