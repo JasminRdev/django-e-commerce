@@ -6,6 +6,7 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.http import HttpResponse
 # Create your views here.
 
+# private function that stores session key
 def _cart_id(request):
     cart = request.session.session_key
     if not cart:
