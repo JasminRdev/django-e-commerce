@@ -1,0 +1,19 @@
+.hovering { 
+    transition: width 0.5s ease-in-out, height 0.5s ease-in-out, background-color 0.5s ease-in-out;
+}
+
+
+.hovering:hover{
+    background-color: #cce1f0;
+}
+
+.align-center {
+    align-content: center;
+}
+.justify-content {
+    text-align: center;
+}
+
+.text-center-style {
+    text-align: center;
+}
