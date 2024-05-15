@@ -3,7 +3,10 @@ from .models import Product
 from category.models import Category
 from carts.models import CartItem
 from carts.views import _cart_id
+
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
+from django.http import HttpResponse
+from django.db.models import Q
 
 
 from django.http import HttpResponse
@@ -51,3 +54,14 @@ def product_detail(request, category_slug, product_slug):
     }
     
     return render(request, 'store/product_detail.html', context)
+
+
+def search(request):
+    #checks if keyword exists in url that is in navbar html searchs input name attribute
+        if 'keyword' in request.GET:
+            keyword = request.GET['keyword']
+            #find by filter through descriptions model
+            if keyword:
+                products = Product.objects.order_by('-created_date').filter(Q(description__icontains=keyword) | Q(product_name__icontains=keyword))
+        context = {'products': products,}
+        return render(request, 'store/store.html', context)
