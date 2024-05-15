@@ -54,7 +54,7 @@ def cart(request, total=0, quantity=0, cart_items=None):
         'total' :total,
         'quantity' :quantity,
         'cart_items' :cart_items,
-        'tax': tax,
+        'tax': total,
         'grand_total': grand_total,
     }
 
